@@ -24,5 +24,5 @@ mins, secs = divmod(duration / 1000, 60)
 hours, mins = divmod(mins, 60)
 days, hours = divmod(hours, 24)
 
-print('\nTotal duration (D:H:M:S): {}:{}:{}:{}'.format(int(days),
-                                                       int(hours), int(mins), int(secs)))
+print('\nTotal duration (D:H:M:S): {:0>2}:{:0>2}:{:0>2}:{:0>2}'.format(int(days),
+                                                                       int(hours), int(mins), int(secs)))
