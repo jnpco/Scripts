@@ -3,6 +3,7 @@ import urllib
 import random
 import youtube_dl
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 def query(search):
@@ -17,10 +18,14 @@ def query(search):
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
     ]
 
-    driver = webdriver.Chrome('./chromedriver.exe')
+    opts = Options()
+    opts.add_argument('user-agent=' + random.choice(USER_AGENTS))
+    driver = webdriver.Chrome('./chromedriver.exe', options=opts)
+
     driver.get('https://www.youtube.com/results?search_query=' +
                urllib.parse.quote(search))
 
+    print(driver.execute_script('return navigator.userAgent'))
     return driver.find_elements_by_xpath('//*[@id="video-title"]')
 
 
