@@ -1,5 +1,6 @@
 '''
 Install pymediainfo w/ pip install pymediainfo.
+MediaInfo dll should be in the same directory.
 Run script to check combined duration of all videos in a directory and it's sub directory.
 '''
 
@@ -9,7 +10,6 @@ import datetime
 from pymediainfo import MediaInfo
 
 duration = 0
-print(sys.argv)
 for arg in sys.argv[1:]:
     for root, dirs, files in os.walk(arg):
         for file in files:
