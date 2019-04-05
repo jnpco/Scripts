@@ -25,7 +25,6 @@ def query(search):
     driver.get('https://www.youtube.com/results?search_query=' +
                urllib.parse.quote(search))
 
-    print(driver.execute_script('return navigator.userAgent'))
     return driver.find_elements_by_xpath('//*[@id="video-title"]')
 
 
@@ -47,5 +46,16 @@ def getLinks(links, limit=1):
     return data
 
 
-for datum in getLinks(query('billie eilish')):
-    print(datum)
+def download(links, folder_name=''):
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+    ydl_opts = {
+        'outtmpl': os.path.join(os.path.sep, '%(title)s.%(ext)s')
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        for link in links:
+            ydl.download([link['url']])
+
+
+download(getLinks(query('mv')), 'test')
