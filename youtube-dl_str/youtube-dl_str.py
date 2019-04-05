@@ -17,14 +17,14 @@ def query(search):
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
     ]
 
-    return 'https://www.youtube.com/results?search_query=' + urllib.parse.quote(search)
-
-
-def getLinks(search, limit):
     driver = webdriver.Chrome('./chromedriver.exe')
-    driver.get(query(search))
-    links = driver.find_elements_by_xpath('//*[@id="video-title"]')
+    driver.get('https://www.youtube.com/results?search_query=' +
+               urllib.parse.quote(search))
 
+    return driver.find_elements_by_xpath('//*[@id="video-title"]')
+
+
+def getLinks(links, limit=1):
     ctr = 0
     data = []
 
@@ -36,13 +36,11 @@ def getLinks(search, limit):
             continue
         else:
             data.append(
-                {'title': link.text, 'href': link.get_attribute('href')})
+                {'title': link.text, 'url': link.get_attribute('href')})
             ctr += 1
 
     return data
 
 
-data = getLinks('billie eilish', 5)
-
-for datum in data:
+for datum in getLinks(query('billie eilish')):
     print(datum)
