@@ -24,7 +24,6 @@ config = {
     '.ppt': {'group': 'document'},
     '.pptx': {'group': 'document'},
     '.rtf': {'group': 'document'},
-    '.txt': {'group': 'document'},
     '.vsd': {'group': 'document'},
     '.xls': {'group': 'document'},
     '.xlsx': {'group': 'document'},
@@ -73,3 +72,24 @@ config = {
     '.mobi': {'group': 'ebook'},
     '.pdf': {'group': 'ebook'}
 }
+
+# r'C:\Users\jnpco\Desktop'
+
+
+def organize(path):
+    files = os.listdir(path)
+    os.chdir(path)
+
+    for f in files:
+        for file_type in config:
+            group = config[file_type]['group']
+            destination = group_config[group]['destination']
+            if f.endswith(file_type):
+                print(f + ' -> ' + destination)
+                if not os.path.exists(destination):
+                    os.makedirs(destination)
+                shutil.move(f, destination)
+                break
+
+
+organize(r'C:\Users\jnpco\Desktop')
