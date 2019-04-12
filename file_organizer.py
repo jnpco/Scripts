@@ -84,7 +84,7 @@ def organize(path):
         for file_type in config:
             group = config[file_type]['group']
             destination = group_config[group]['destination']
-            if f.endswith(file_type):
+            if f.lower().endswith(file_type):
                 print(f + ' -> ' + destination)
                 if not os.path.exists(destination):
                     os.makedirs(destination)
