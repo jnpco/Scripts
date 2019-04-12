@@ -1,6 +1,7 @@
 import os
 import shutil
 
+# make app with node and electron
 # make json for config and group_config
 # if dir not exists create dir
 # include option subdirectory -inc. warning
@@ -73,8 +74,6 @@ config = {
     '.pdf': {'group': 'ebook'}
 }
 
-# r'C:\Users\jnpco\Desktop'
-
 
 def organize(path):
     files = os.listdir(path)
@@ -88,7 +87,11 @@ def organize(path):
                 print(f + ' -> ' + destination)
                 if not os.path.exists(destination):
                     os.makedirs(destination)
-                shutil.move(f, destination)
+
+                if os.path.isfile(os.path.join(destination, f)):
+                    print('file exists')
+                else:
+                    shutil.move(f, destination)
                 break
 
 
