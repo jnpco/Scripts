@@ -5,13 +5,17 @@ import moviepy.editor as mp
 # Install moviepy using pip.
 
 
-def extract_audio(path, start=0, end=None):
+def extract_audio(path, start=0, end=None, output_filepath=None, prefix='', suffix='', filetype='mp3'):
     clip = mp.VideoFileClip(path).subclip(start, end)
-    clip.audio.write_audiofile(os.path.splitext(path)[0] + '(audio).mp3')
+
+    if output_filepath is None:
+        output_filepath = os.path.dirname(path)
+    output_filename = os.path.basename(path)
+
+    clip.audio.write_audiofile(os.path.join(
+        output_filepath, prefix + os.path.splitext(output_filename)[0] + suffix + '.' + filetype))
 
 
-'''
-SAMPLE
+# SAMPLE
 for arg in sys.argv[1:]:
     extract_audio(arg, 0, 5)
-'''
