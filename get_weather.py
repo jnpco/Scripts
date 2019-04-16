@@ -20,14 +20,13 @@ def get_weather(location):
         # 1-3, 4-7, 7-10 days summaries
         'three_day_summary': thead.select('tr.b-forecast__table-description.b-forecast__hide-for-small.days-summaries span.phrase'),
         # Odd idx is the day of the week, followed by date
-        'days': thead.select('tr.b-forecast__table-days.js-forecast-header.js-daynames span.b-forecast__table-days-name,span.b-forecast__table-days-date'),
-
+        'days': thead.select('tr.b-forecast__table-days.js-forecast-header.js-daynames span.b-forecast__table-days-name'),
+        'date': thead.select('tr.b-forecast__table-days.js-forecast-header.js-daynames span.b-forecast__table-days-date'),
         # Same no. of columns
         # Morning Evening Night
         'period': thead.select('tr.b-forecast__table-time.js-daytimes span.b-forecast__table-value'),
         # Summary clear, cloudy etc.
-        'summary': tbody.select('tr.b-forecast__table-summary td.b-forecast__table-day-end div.b-forecast__text-limit'),
-
+        'summary': tbody.select('tr.b-forecast__table-summary div.b-forecast__text-limit'),
         'high': tbody.select('tr.b-forecast__table-max-temperature span.temp.b-forecast__table-value'),
         'low': tbody.select('tr.b-forecast__table-min-temperature span.temp.b-forecast__table-value'),
         'wind': tbody.select('tr.b-forecast__table-wind div.b-forecast__table-wind-container text.wind-icon-val'),
