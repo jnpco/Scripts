@@ -25,10 +25,15 @@ def get_weather(location):
         # Same no. of columns
         # Morning Evening Night
         'period': thead.select('tr.b-forecast__table-time.js-daytimes span.b-forecast__table-value'),
-        # Wind km/h
-        'wind': tbody.select('tr.b-forecast__table-wind div.b-forecast__table-wind-container text.wind-icon-val'),
         # Summary clear, cloudy etc.
-        'summary': tbody.select('tr.b-forecast__table-summary td.b-forecast__table-day-end div.b-forecast__text-limit')
+        'summary': tbody.select('tr.b-forecast__table-summary td.b-forecast__table-day-end div.b-forecast__text-limit'),
+
+        'high': tbody.select('tr.b-forecast__table-max-temperature span.temp.b-forecast__table-value'),
+        'low': tbody.select('tr.b-forecast__table-min-temperature span.temp.b-forecast__table-value'),
+        'wind': tbody.select('tr.b-forecast__table-wind div.b-forecast__table-wind-container text.wind-icon-val'),
+        'humidity': tbody.select('tr.b-forecast__table-humidity span.b-forecast__table-value'),
+        'sunrise': tbody.select('tr.b-forecast__table-sunrise span.b-forecast__table-value'),
+        'sunset': tbody.select('tr.b-forecast__table-sunset span.b-forecast__table-value'),
     }
     # if not am, arrange data set
 
