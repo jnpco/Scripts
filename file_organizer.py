@@ -8,12 +8,12 @@ import shutil
 # destination = group_config[config['.csv']['group']] //sample
 
 group_config = {
-    'document': {'destination': r'C:\Users\jnpco\Desktop\test\document'},
-    'image': {'destination': r'C:\Users\jnpco\Desktop\test\images'},
-    'video': {'destination': r'C:\Users\jnpco\Desktop\test\videos'},
-    'audio': {'destination': r'C:\Users\jnpco\Desktop\test\music'},
-    'compressed': {'destination': r'C:\Users\jnpco\Desktop\test\compressed'},
-    'ebook': {'destination': r'C:\Users\jnpco\Desktop\test\ebooks'},
+    'document': {'destination': r'C:\path\to\folder'},
+    'image': {'destination': r'C:\path\to\folder'},
+    'video': {'destination': r'C:\path\to\folder'},
+    'audio': {'destination': r'C:\path\to\folder'},
+    'compressed': {'destination': r'C:\path\to\folder'},
+    'ebook': {'destination': r'C:\path\to\folder'},
 }
 
 config = {

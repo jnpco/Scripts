@@ -3,6 +3,10 @@ import bs4
 
 city = 'sydney'
 
+# TODO rearrange data set.
+# if not am, shift data set.
+# TODO add rotation to ip and add proxy
+
 
 def get_weather(location):
     location = location.replace(' ', '-')
@@ -34,7 +38,6 @@ def get_weather(location):
         'sunrise': tbody.select('tr.b-forecast__table-sunrise span.b-forecast__table-value'),
         'sunset': tbody.select('tr.b-forecast__table-sunset span.b-forecast__table-value'),
     }
-    # if not am, arrange data set
 
     for row in forecast_rows:
         print(row + ' col no. --> ' + str(len(forecast_rows[row])) + '\n')
