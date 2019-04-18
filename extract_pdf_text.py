@@ -1,10 +1,11 @@
 import PyPDF2
 import os
-import gtts
-import re
+from filter_text import filter_text
+
+# Todo Add page_start and page_end
 
 
-def extract_text(path, regex=None):
+def extract_pdf_text(path, regex=None):
     if(os.path.exists(path) is False):
         return None
     else:
@@ -22,17 +23,3 @@ def extract_text(path, regex=None):
                     words += page_content
 
         return words
-
-
-def filter_text(unfiltered, regex=r'[\w .,!?]'):
-    filtered = re.findall(regex, unfiltered)
-    filtered_text = ''
-
-    for text in filtered:
-        filtered_text += text
-
-    return filtered_text
-
-
-tts = gtts.gTTS(text=extract_text('./test.pdf', r'[\w .,!?]'), lang='en')
-tts.save('./test.mp3')
