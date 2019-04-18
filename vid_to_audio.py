@@ -16,6 +16,6 @@ def extract_audio(path, start=0, end=None, output_filepath=None, prefix='', suff
         output_filepath, prefix + os.path.splitext(output_filename)[0] + suffix + '.' + filetype))
 
 
-# SAMPLE
-for arg in sys.argv[1:]:
-    extract_audio(arg, 0, 5)
+if __name__ == "__main__":
+    for arg in sys.argv[1:]:
+        extract_audio(arg, 0, 5)

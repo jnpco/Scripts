@@ -7,4 +7,5 @@ def extract_pdf_audio(src, output):
     tts.save(output)
 
 
-extract_pdf_audio('./test.pdf', './test.mp3')
+if __name__ == "__main__":
+    extract_pdf_audio('./test.pdf', './test.mp3')

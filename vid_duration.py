@@ -29,9 +29,9 @@ def get_vid_duration_dirs(dirs):
     return (days, hours, mins, secs)
 
 
-duration = get_vid_duration_dirs(sys.argv[1:])
+if __name__ == "__main__":
+    duration = get_vid_duration_dirs(sys.argv[1:])
+    days, hours, mins, secs = duration
 
-days, hours, mins, secs = duration
-
-print('\nTotal duration (D:H:M:S): {:0>2}:{:0>2}:{:0>2}:{:0>2}'.format(int(days),
-                                                                       int(hours), int(mins), int(secs)))
+    print('\nTotal duration (D:H:M:S): {:0>2}:{:0>2}:{:0>2}:{:0>2}'.format(int(days),
+                                                                           int(hours), int(mins), int(secs)))

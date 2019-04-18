@@ -46,4 +46,5 @@ def get_weather(location):
         print('------------------------------------------------------------')
 
 
-get_weather('sydney')
+if __name__ == "__main__":
+    get_weather('sydney')

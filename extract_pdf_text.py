@@ -23,3 +23,7 @@ def extract_pdf_text(path, regex=None):
                     words += page_content
 
         return words
+
+
+if __name__ == "__main__":
+    print(extract_pdf_text('./test.pdf'))

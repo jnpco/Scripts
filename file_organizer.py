@@ -8,12 +8,12 @@ import shutil
 # destination = group_config[config['.csv']['group']] //sample
 
 group_config = {
-    'document': {'destination': r'C:\path\to\folder'},
-    'image': {'destination': r'C:\path\to\folder'},
-    'video': {'destination': r'C:\path\to\folder'},
-    'audio': {'destination': r'C:\path\to\folder'},
-    'compressed': {'destination': r'C:\path\to\folder'},
-    'ebook': {'destination': r'C:\path\to\folder'},
+    'document': {'destination': 'C:\\path\\to\\folder'},
+    'image': {'destination': 'C:\\path\\to\\folder'},
+    'video': {'destination': 'C:\\path\\to\\folder'},
+    'audio': {'destination': 'C:\\path\\to\\folder'},
+    'compressed': {'destination': 'C:\\path\\to\\folder'},
+    'ebook': {'destination': 'C:\\path\\to\\folder'},
 }
 
 config = {
@@ -95,4 +95,5 @@ def organize(path):
                 break
 
 
-organize(r'C:\Users\jnpco\Desktop')
+if __name__ == "__main__":
+    organize('C:\\path\\to\\folder')
