@@ -23,6 +23,12 @@ Filters and returns a string using a regex.
 ### get_weather.py
 Scrapes weather forecast from www.weather-forecast.com Includes three day summary, daily summary, high, low, wind km/h, humidity, sunrise and sunset time.
 
+### merge_pdf.py
+Combines multiple pdf files. Sample use is when you want to print out multiple documents, but dont want to have to manually print each of them.
+
+### split_pdf.py
+Split pdf into multiple files.
+
 ### vid_duration.py
 Fetches all video files from a directory and calculates their duration. ( Useful if you wanna check how much time you're gonna waste binge watching all those films. XD )
 
