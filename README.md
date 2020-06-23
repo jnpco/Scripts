@@ -2,6 +2,9 @@
 
 Sketches/Prototypes of ideas for a project.
 
+### rln/*
+Scrapes dynamic html from rln. The required data is extracted and processed for the api.
+
 ### clear_screen.py
 Simple script that clears screen. (Windows, Linux, Mac)
 
